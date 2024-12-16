@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package comment;
+
+option go_package = "github.com/socialmedia/post/adapter/proto";
+
+/* Comment service */
+message Comment {
+    string id = 1;
+    string post_id = 2;
+    string user_id = 3;
+    string message = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+// CommentRequest is used for creating, updating, deleting and getting a comment.
+message CommentRequest {
+    string id = 1;
+    string post_id = 2;
+    string user_id = 3;
+    string message = 4;
+    string created_at = 5;
+    string updated_at = 6;
+}
+
+service CommentService {
+    rpc CreateComment(CommentRequest) returns (Comment) {}
+    rpc GetComment(CommentRequest) returns (Comment) {}
+    rpc UpdateComment(CommentRequest) returns (Comment) {}
+    rpc DeleteComment(CommentRequest) returns (Comment) {}
+}
+
