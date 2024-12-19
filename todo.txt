@@ -1,0 +1,89 @@
+# Protocol Buffer Parser Features
+
+## Implemented Features
+### Core Functionality
+- Get all message blocks
+- Get all enum blocks
+- Get all service blocks
+- Get package name
+- Get syntax version
+- Get service by name
+- Get RPCs by service name
+- Get message by name
+- Get all message blocks by RPC name
+- Get all fields by message name
+- Get all types by message name
+- Get all reserved fields by message name
+- Get all enum blocks by message block
+- Get enum by name
+- Get all enum fields by enum name
+- Get all enums by message name
+- Get all packages
+  - Handle multiple package declarations
+  - Support nested packages
+- Get package by path
+- Get child packages
+- Get parent package
+
+## Planned Features
+### Field Analysis
+- Get all optional fields by message
+  - Handle proto3 implicit optional fields
+  - Handle explicit optional fields
+- Get all required fields by message
+  - Note: Only applicable in proto2
+- Get type of field
+  - Support primitive types
+  - Support custom message types
+  - Support enum types
+  - Handle repeated fields
+  - Handle maps
+
+### Stream Analysis
+- Get all client-side streaming RPCs by service name
+  - Identify RPCs with `stream` keyword in request
+- Get all server-side streaming RPCs by service name
+  - Identify RPCs with `stream` keyword in response
+- Get all unary RPCs by service name
+  - Identify RPCs without any `stream` keywords
+
+## Additional Recommended Features
+### Validation
+- Syntax validation
+- Package name validation
+- Field name and number validation
+- Reserved field validation
+- Duplicate field number detection
+
+### Import Analysis
+- Get all imported proto files
+- Resolve imported type references
+- Handle public imports
+
+### Documentation
+- Extract comments for messages
+- Extract comments for fields
+- Extract service documentation
+- Support for both inline and block comments
+
+### Type Safety
+- Type compatibility checking
+- Circular dependency detection
+- Map key type validation
+
+### Extensions (Proto2)
+- Get all extension ranges
+- Get all extended messages
+- Validate extension numbers
+
+### Options Analysis
+- Get file-level options
+- Get message-level options
+- Get field-level options
+- Get service-level options
+- Custom option support
+
+### Serialization Support
+- Generate field wire format information
+- Handle oneof fields
+- Support well-known types
