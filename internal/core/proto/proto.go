@@ -104,3 +104,18 @@ func (p *Proto) GetChildPackagesByPath(parentPath string) ([]*parser.Package, er
 func (p *Proto) GetParentPackageByPath(childPath string) (*parser.Package, error) {
 	return p.parser.GetParentPackage(childPath)
 }
+
+// GetGetServerStreamingServices returns the server streaming services name
+func (p *Proto) GetServerStreamingServices() []string {
+	return p.parser.GetServerStreamingServices()
+}
+
+// GetGetClientStreamingServices returns the client streaming services name
+func (p *Proto) GetClientStreamingServices() []string {
+	return p.parser.GetClientStreamingServices()
+}
+
+// GetBidirectionalStreamingServices returns the bidirectional streaming services name
+func (p *Proto) GetBidirectionalStreamingServices() []string {
+	return p.parser.GetBidirectionalStreamingServices()
+}

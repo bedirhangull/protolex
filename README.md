@@ -160,13 +160,20 @@ rpc := proto.GetRPCByServiceName("UserService", "CreateUser")
 | `GetAllEnumFieldsByEnumName(enumName string)` | `([]string, error)` | Returns all fields defined in an enum |
 | `GetAllEnumsByMessageName(messageName string)` | `([]string, error)` | Returns all enums used in a message |
 
+...
+
 ### Service Operations
 
 | Function | Return Type | Description |
 |----------|-------------|-------------|
 | `GetAllServiceBlocks()` | `[]string` | Returns all service blocks in the proto file |
-| `GetServiceByName(name string)` | `string` | Returns a specific service block by its name |
+| `GetServiceByName(name string)` | `string` | Returns a specific service block by its name | 
 | `GetRPCByServiceName(name string, RPCname string)` | `string` | Returns a specific RPC definition from a service |
+| `GetServerStreamingServices()` | `[]string` | Returns the names of server streaming services |
+| `GetClientStreamingServices()` | `[]string` | Returns the names of client streaming services |
+| `GetBidirectionalStreamingServices()` | `[]string` | Returns the names of bidirectional streaming services |
+
+...
 
 ### Package Operations
 

@@ -67,3 +67,64 @@ func (p *Parser) GetRPCByServiceName(serviceName string, RPCname string) string 
 
 	return ""
 }
+
+// TODO: Refactor this function
+func (p *Parser) GetBidirectionalStreamingServices() []string {
+	var services []string
+
+	for _, service := range p.GetAllServiceBlocks() {
+		for _, line := range strings.Split(service, "\n") {
+			trimmedLine := strings.TrimSpace(line)
+			if strings.HasPrefix(trimmedLine, "rpc") {
+				if strings.Contains(trimmedLine, "stream") &&
+					strings.Count(trimmedLine, "stream") == 2 {
+					rpcName := strings.Split(trimmedLine, "(")[0]
+					rpcName = strings.TrimSpace(strings.Split(rpcName, "rpc")[1])
+					services = append(services, rpcName)
+				}
+			}
+		}
+	}
+	return services
+}
+
+// TODO: Refactor this function
+func (p *Parser) GetServerStreamingServices() []string {
+	var services []string
+
+	for _, service := range p.GetAllServiceBlocks() {
+
+		for _, line := range strings.Split(service, "\n") {
+			trimmedLine := strings.TrimSpace(line)
+
+			if strings.HasPrefix(trimmedLine, "rpc") &&
+				strings.Contains(trimmedLine, "returns (stream") &&
+				!strings.Contains(trimmedLine, "stream") ||
+				strings.Count(trimmedLine, "stream") == 1 &&
+					strings.Contains(trimmedLine, "returns (stream") {
+				rpcName := strings.Split(trimmedLine, "(")[0]
+				rpcName = strings.TrimSpace(strings.Split(rpcName, "rpc")[1])
+				services = append(services, rpcName)
+			}
+		}
+	}
+	return services
+}
+
+// TODO: Refactor this function
+func (p *Parser) GetClientStreamingServices() []string {
+	var services []string
+	for _, service := range p.GetAllServiceBlocks() {
+		for _, line := range strings.Split(service, "\n") {
+			trimmedLine := strings.TrimSpace(line)
+			if strings.HasPrefix(trimmedLine, "rpc") &&
+				strings.Contains(trimmedLine, "stream") &&
+				!strings.Contains(trimmedLine, "returns (stream") {
+				rpcName := strings.Split(trimmedLine, "(")[0]
+				rpcName = strings.TrimSpace(strings.Split(rpcName, "rpc")[1])
+				services = append(services, rpcName)
+			}
+		}
+	}
+	return services
+}
