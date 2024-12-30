@@ -1,5 +1,7 @@
 # Protolex
 
+[![website](https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://bedirhangull.github.io/protolex-web/)
+
 Protolex is a powerful Go package for parsing and analyzing Protocol Buffer (protobuf) files. It provides a comprehensive set of tools to extract and analyze various components of proto files, including messages, enums, services, packages, and more.
 
 ## Features
