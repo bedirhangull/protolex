@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://mdxjs.com">
-    <img alt="kubectl tree logo" src="https://github.com/bedirhangull/protolex-web/blob/main/assets/logo/protolex.png" width="140" />
+    <img alt="kubectl tree logo" src="https://github.com/bedirhangull/protolex-web/blob/main/assets/logo/protolex.png" width="100%" />
   </a>
 </p>
 # Protolex
