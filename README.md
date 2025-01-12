@@ -199,4 +199,5 @@ rpc := proto.GetRPCByServiceName("UserService", "CreateUser")
 
 ## TODO
 
-- Implement a generator for proto file tests
+- Implement tests
+- CI CD workflows
